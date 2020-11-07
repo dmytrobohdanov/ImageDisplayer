@@ -1,7 +1,6 @@
 package me.bohdanov.imagedisplayer.repository
 
 import android.content.Context
-import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.map
 import androidx.paging.*
@@ -34,6 +33,6 @@ class Repository(applicationContext: Context) {
     }
 
     private fun handleApiModelsReceived(apiImageModelList: ArrayList<ApiImageDataModel>): ArrayList<ImageDbEntity> {
-        return ArrayList(apiImageModelList.map { ImageDbEntity.createFrom(it, Uri.parse("")) })
+        return ArrayList(apiImageModelList.map { ImageDbEntity.createFrom(it, "") })
     }
 }

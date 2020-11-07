@@ -10,8 +10,7 @@ import androidx.room.Query
 @Dao
 interface ImagesDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(users: List<ImageDbEntity>)
-
+    fun insertAll(imagesList: List<ImageDbEntity>)
 
     @Query("SELECT COUNT(*) FROM images")
     fun countImagesInDb(): Int

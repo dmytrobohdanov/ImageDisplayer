@@ -1,6 +1,5 @@
 package me.bohdanov.imagedisplayer.ui.ui_data_models
 
-import android.net.Uri
 import androidx.recyclerview.widget.DiffUtil
 import me.bohdanov.imagedisplayer.repository.data_base.ImageDbEntity
 
@@ -9,7 +8,7 @@ data class UiImageDataModel(
     val author: String,
     val maxWidth: Int,
     val maxHeight: Int,
-    val localFileUri: Uri,
+    val localFileUriString: String,
     val webUrl: String
 ) {
     companion object {
@@ -19,7 +18,7 @@ data class UiImageDataModel(
                 author = dbEntity.author,
                 maxWidth = dbEntity.maxWidth,
                 maxHeight = dbEntity.maxHeight,
-                localFileUri = dbEntity.localFileUri,
+                localFileUriString = dbEntity.localFileUriString,
                 webUrl = dbEntity.webUrl
             )
         }
