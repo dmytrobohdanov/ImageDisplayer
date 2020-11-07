@@ -1,4 +1,4 @@
-package me.bohdanov.imagedisplayer.repository.data_models
+package me.bohdanov.imagedisplayer.repository.api.data_models
 
 data class ApiImageDataModel(
     val id: String,

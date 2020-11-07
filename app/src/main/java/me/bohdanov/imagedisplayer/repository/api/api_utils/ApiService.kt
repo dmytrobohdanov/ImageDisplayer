@@ -1,7 +1,7 @@
 package me.bohdanov.imagedisplayer.repository.api.api_utils
 
 import io.reactivex.Single
-import me.bohdanov.imagedisplayer.repository.data_models.ApiImageDataModel
+import me.bohdanov.imagedisplayer.repository.api.data_models.ApiImageDataModel
 import retrofit2.http.GET
 import retrofit2.http.Query
 
