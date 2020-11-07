@@ -1,9 +1,9 @@
-package me.bohdanov.imagedisplayer.repository.api
+package me.bohdanov.imagedisplayer.repository.api.api_utils
 
 import io.reactivex.Single
 import me.bohdanov.imagedisplayer.repository.data_models.ApiImageDataModel
-import retrofit2.Response
-import retrofit2.http.*
+import retrofit2.http.GET
+import retrofit2.http.Query
 
 
 interface ApiService {

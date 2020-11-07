@@ -1,4 +1,4 @@
-package me.bohdanov.imagedisplayer.repository.api
+package me.bohdanov.imagedisplayer.repository.api.api_utils
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

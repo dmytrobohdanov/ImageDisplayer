@@ -3,6 +3,7 @@ package me.bohdanov.imagedisplayer.repository.api
 import io.reactivex.Scheduler
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
+import me.bohdanov.imagedisplayer.repository.api.api_utils.RetrofitCreator
 import me.bohdanov.imagedisplayer.repository.data_models.ApiImageDataModel
 
 const val DEFAULT_NUMBER_OF_IMAGES_PER_PAGE = 15
