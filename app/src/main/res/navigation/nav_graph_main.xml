@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_main.xml"
+    app:startDestination="@id/imagesListFragment">
+
+    <fragment
+        android:id="@+id/imagesListFragment"
+        android:name="me.bohdanov.imagedisplayer.ui.screen_images_list.ImagesListFragment"
+        android:label="fragment_images_list"
+        tools:layout="@layout/fragment_images_list">
+        <action
+            android:id="@+id/action_imagesListFragment_to_imageDetailsFragment"
+            app:destination="@id/imageDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/imageDetailsFragment"
+        android:name="me.bohdanov.imagedisplayer.ui.screen_image_details.ImageDetailsFragment"
+        android:label="fragment_image_details"
+        tools:layout="@layout/fragment_image_details" />
+</navigation>

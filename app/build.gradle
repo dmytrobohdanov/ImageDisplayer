@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -39,10 +41,12 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation "androidx.fragment:fragment-ktx:1.2.5"
 
     // room
     implementation "android.arch.persistence.room:runtime:1.1.1"
-    annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
+    kapt "android.arch.persistence.room:compiler:1.1.1"
 
     //add retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
@@ -65,13 +69,13 @@ dependencies {
     //rx
     implementation "io.reactivex.rxjava2:rxjava:2.2.9"
     implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
-    implementation ("io.reactivex.rxjava2:rxkotlin:2.1.1")
+    implementation "io.reactivex.rxjava2:rxkotlin:2.1.0"
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
 
     // paging
-    def paging_version = "3.0.0-alpha07"
-    implementation "androidx.paging:paging-runtime:$paging_version"
-    implementation "androidx.paging:paging-rxjava2:$paging_version"
+    def paging_version = "3.0.0-alpha08"
+    implementation "androidx.paging:paging-runtime-ktx:$paging_version"
+    implementation "androidx.paging:paging-rxjava2-ktx:$paging_version"
     implementation "androidx.paging:paging-guava:$paging_version"
 
 //    testImplementation 'junit:junit:4.+'
