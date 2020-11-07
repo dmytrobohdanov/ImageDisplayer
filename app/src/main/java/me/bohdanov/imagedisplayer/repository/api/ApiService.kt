@@ -7,9 +7,15 @@ import retrofit2.http.*
 
 
 interface ApiService {
-    //    "https://picsum.photos/v2/list?page=2&limit=100"
+    /**
+     * getting list of image items
+     * example call: https://picsum.photos/v2/list?page=2&limit=100
+     *
+     * @param pageNumber number of page to load
+     * @param itemsPerPage image items per page (default api value is 30)
+     */
     @GET("/v2/list")
-    suspend fun getImagesListByPage(
+    fun getImagesListByPage(
         @Query("page") pageNumber: Int,
         @Query("limit") itemsPerPage: Int
     ): Single<ArrayList<ApiImageDataModel>>
