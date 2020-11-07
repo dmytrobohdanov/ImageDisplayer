@@ -13,7 +13,7 @@ import me.bohdanov.imagedisplayer.R
 
 
 class ImagesListFragment : Fragment() {
-    private val viewModel: ImagesListViewModel by viewModels()
+    val viewModel: ImagesListViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
