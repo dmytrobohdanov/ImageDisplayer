@@ -25,7 +25,7 @@ class ImagesListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val imagesAdapter = ImagesRvAdapter()
+        val imagesAdapter = ImagesRvAdapter(requireActivity().applicationContext)
         fragment_images_list_rv.adapter = imagesAdapter
 
         viewModel.imagesPagedList.observe(viewLifecycleOwner) { pagingData ->

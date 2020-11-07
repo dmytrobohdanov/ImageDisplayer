@@ -18,7 +18,7 @@ data class UiImageDataModel(
                 author = dbEntity.author,
                 maxWidth = dbEntity.maxWidth,
                 maxHeight = dbEntity.maxHeight,
-                localFileUriString = dbEntity.localFileUriString,
+                localFileUriString = dbEntity.cashedFileName,
                 webUrl = dbEntity.webUrl
             )
         }

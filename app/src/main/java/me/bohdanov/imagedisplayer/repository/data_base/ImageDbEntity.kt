@@ -11,20 +11,20 @@ data class ImageDbEntity(
     val author: String,
     val maxWidth: Int,
     val maxHeight: Int,
-    val localFileUriString: String,
+    val cashedFileName: String,
     val webUrl: String
 ) {
     companion object {
         fun createFrom(
             apiImageModel: ApiImageDataModel,
-            localFileUriString: String
+            cashedFileName: String
         ): ImageDbEntity {
             return ImageDbEntity(
                 id = apiImageModel.id,
                 author = apiImageModel.author,
                 maxWidth = apiImageModel.width,
                 maxHeight = apiImageModel.height,
-                localFileUriString = localFileUriString,
+                cashedFileName = cashedFileName,
                 webUrl = apiImageModel.download_url
             )
         }
