@@ -29,10 +29,10 @@ class ImagesRemoteMediator(
         database: ImagesDataBase
     ): Int {
         return when (loadType) {
-            LoadType.REFRESH -> 0
+            LoadType.REFRESH -> 1
             LoadType.PREPEND -> END_REACHED
             LoadType.APPEND -> {
-                val numberOfImagesInDb = database.employeeDao().countImagesInDb()
+                val numberOfImagesInDb = database.imagesDao().countImagesInDb()
                 val numberOfPagesLoadedFromApi = numberOfImagesInDb / ITEMS_LOADED_PER_PAGE
                 val nextPageIndex = numberOfPagesLoadedFromApi + 1
                 nextPageIndex
@@ -54,6 +54,7 @@ class ImagesRemoteMediator(
                     Single.just(MediatorResult.Success(endOfPaginationReached = true))
                 } else {
                     apiManager.getImagesByPage(pageNumber = page)
+                        .observeOn(Schedulers.io())
                         .map { handleApiModelsReceived(it) }
                         .map { insertToDb(loadType, it) }
                         .map<MediatorResult> { MediatorResult.Success(endOfPaginationReached = (it.size == 0)) }
@@ -68,9 +69,9 @@ class ImagesRemoteMediator(
         images: ArrayList<ImageDbEntity>
     ): ArrayList<ImageDbEntity> {
         if (loadType == LoadType.REFRESH) {
-            database.employeeDao().clearAll()
+            database.imagesDao().clearAll()
         }
-        database.employeeDao().insertAll(images)
+        database.imagesDao().insertAll(images)
 
         return images
     }

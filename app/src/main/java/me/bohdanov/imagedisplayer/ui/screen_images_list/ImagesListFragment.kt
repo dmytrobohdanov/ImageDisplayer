@@ -13,7 +13,7 @@ import me.bohdanov.imagedisplayer.R
 
 
 class ImagesListFragment : Fragment() {
-    val viewModel: ImagesListViewModel by viewModels()
+    private val viewModel: ImagesListViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,8 +29,10 @@ class ImagesListFragment : Fragment() {
         fragment_images_list_rv.adapter = imagesAdapter
 
         viewModel.imagesPagedList.observe(viewLifecycleOwner) { pagingData ->
-            imagesAdapter.submitData(lifecycle, pagingData)
+            imagesAdapter.submitData(viewLifecycleOwner.lifecycle, pagingData)
         }
+
+
 
         imagesAdapter.addLoadStateListener { loadStates ->
             fragment_images_list_progress.isVisible = loadStates.refresh is LoadState.Loading

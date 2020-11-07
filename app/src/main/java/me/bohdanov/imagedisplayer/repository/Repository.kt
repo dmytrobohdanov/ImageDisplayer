@@ -27,9 +27,13 @@ class Repository(applicationContext: Context) {
                 database = database,
                 apiManager = apiManager
             ) { apiImageModelList -> handleApiModelsReceived(apiImageModelList) },
-            { database.employeeDao().pagingSource() })
+            { database.imagesDao().pagingSource() })
             .liveData
-            .map { dbModel -> dbModel.map { UiImageDataModel.createFrom(it) } }
+            .map { dbModel ->
+                dbModel.map {
+                    UiImageDataModel.createFrom(it)
+                }
+            }
     }
 
     private fun handleApiModelsReceived(apiImageModelList: ArrayList<ApiImageDataModel>): ArrayList<ImageDbEntity> {
